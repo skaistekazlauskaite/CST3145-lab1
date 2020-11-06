@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>After School Club</title>
+<script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <h1 v-text="sitename"></h1>
+        </header>
+        <main>
+            <figure>
+                <img v-bind:src="product.image">
+            </figure>
+            <h2 v-text="product.title"></h2> 
+            <p v-text="product.place"></p>
+            <p>Price: {{product.price}}</p>
+            <p> Number of Spaces: {{product.spaces}}</p>
+            <button v-on:click="addToCart">Add to Cart</button>
+        </main>
+    </div>
+   
+   <script type="text/javascript">
+    var webstore = new Vue({
+        el: '#app',
+        data: {
+            sitename: 'After School Club',
+            product: {
+                id: 101,
+                title: "Math",
+                place: "London",
+                price: 100,
+                spaces: 5,
+                image: "image.png"
+                
+
+            },
+            cart:[]
+        },
+        methods: {
+            addToCart: function() {
+                this.cart.push( this.product.id)
+            },
+        }
+    });
+        </script>
+</body>
+</html>
